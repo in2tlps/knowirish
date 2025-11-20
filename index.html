@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MAPA PORTFOLIO</title>
+    <style>
+        /* Variables for Pink and Dark Colors */
+        :root {
+            --main-pink: #d17d87; /* Main button/accent pink */
+            --accent-pink: #b24a62; /* Darker text/focus pink */
+            --light-pink: #f7e7e9;
+            --dark-brown: #3d2a2a;
+            --text-color: #5a3a52;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Georgia, serif;
+            height: 100%;
+            background: linear-gradient(to right, #f7c9cf, #f0b5bc);
+            color: var(--dark-brown);
+        }
+
+        /* ===== NAVIGATION BAR (Base - Desktop) ===== */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #fce7ef, #ffeef5);
+            border-bottom: 2px solid #f7c5d4;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 70px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #965b7d;
+        }
+
+        .nav-links a {
+            margin-right: 50px;
+            text-decoration: none;
+            color: var(--dark-brown);
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fabb9b;
+        }
+
+        /* ===== HEADER ===== */
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.8);
+            min-height: 90vh;
+            text-align: center;
+        }
+
+        .header-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .header-caption p {
+            font-size: 1rem;
+            color: rgb(161, 92, 115)92;
+            margin-bottom: 20px;
+            position: absolute;
+            top: 430px;
+            left: 500px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            background-color: var(--main-pink);
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: 0.3s;
+            position: absolute;
+            top: 470px;
+            left: 600px;
+        }
+
+        .btn:hover {
+            background-color: #88555b;
+        }
+
+        /* ===== HIGHLIGHTS SECTION ===== */
+        .bestsell {
+            padding: 50px 20px;
+            text-align: center;
+            background: linear-gradient(to right, var(--light-pink), #f3d9dd);
+        }
+
+        .bestsell h2 {
+            font-size: 2.2em;
+            color: var(--accent-pink);
+            margin-bottom: 2px;
+        }
+
+        .bestsell p {
+            font-size: 1em;
+            color: #8b3f51;
+            margin-bottom: 35px;
+        }
+
+        .bestsell-cards {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: nowrap;
+            overflow-x: auto; 
+            padding: 20px 0;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
+        .bestsell-card {
+            position: relative;
+            width: 200px; 
+            height: 240px;
+            border-radius: 50% / 50%;
+            overflow: hidden;
+            background-color: #f4d9b0;
+            flex-shrink: 0;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .bestsell-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50% / 35%;
+        }
+
+        /* Scrollbar styling for bestsell-cards */
+        .bestsell-cards::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .bestsell-cards::-webkit-scrollbar-thumb {
+            background-color: #f3b6ee;
+            border-radius: 4px;
+        }
+
+        .bestsell-cards::-webkit-scrollbar-track {
+            background-color: #f1e8de;
+        }
+
+        /* ===== INTERESTS / SERVICES ===== */
+        .services {
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(to right, #fde8ec, #f9d5dc);
+        }
+
+        .services h2 {
+            font-size: 2rem;
+            color: var(--accent-pink);
+        }
+
+        .services .interest p {
+            font-size: 1rem;
+            color: #8b3e50;
+            margin-bottom: 60px;
+        }
+
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            justify-items: center;
+            align-items: start;
+            margin: 30px auto 0;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .service-card {
+    background-color: #fff;
+    border-radius: 20px;
+    border: 3px solid #d17d87; /* PINK BORDER ADDED */
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    width: 100%;
+    height: 150px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease;
+}
+
+        
+        .service-card .icon {
+            background-color: #ffe6ed;
+            border-radius: 15px;
+            border: 3px solid #723241;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .service-card .icon img {
+            width: 180px;
+            height: 100px;
+            object-fit: contain;
+            border-radius: 15px;
+        }
+
+        .service-card .text {
+            text-align: left;
+        }
+
+        .service-card h3 {
+            font-size: 1.1rem;
+            color: var(--accent-pink);
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: #4a3b3b;
+            margin-top: 6px;
+            line-height: 1.4;
+        }
+
+       .product-section {
+    padding: 60px 20px;
+    background-color: #fff5e6;
+    text-align: center;
+    border: 3px solid #d17d87; /* PINK BORDER */
+    border-radius: 20px;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+        .product-section h3 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #723241;
+        }
+
+        .product-section > p {
+            margin-bottom: 30px;
+            color: var(--text-color);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto; 
+            padding: 0 10px;
+        }
+
+        .product {
+            background-color: var(--card-bg); 
+            padding: 20px;
+            border-radius: 15px;
+            border-color: #8b3e50;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%; 
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between; 
+            height: 100%;
+        }
+
+        .product:hover {
+            transform: translateY(-8px); 
+            box-shadow: 0 10px 25px rgba(178, 74, 98, 0.2);
+        }
+
+        .product .image-container {
+            width: 130px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid var(--accent-pink); 
+            overflow: hidden;
+            margin-bottom: 10px; 
+            flex-shrink: 0;
+        }
+
+        .product img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            margin: 0;
+        }
+
+        .name-details-wrapper {
+            text-align: center;
+            width: 100%;
+            margin-bottom: 10px; 
+            padding: 0 5px; 
+            flex-grow: 1;
+        }
+
+        .name-details-wrapper b {
+            color: var(--accent-pink);
+            font-size: 1.1rem;
+            margin-top: 10px;
+            margin-bottom: 5px; 
+            display: block; 
+            font-weight: 700;
+        }
+
+        .product .details-text { 
+            color: var(--dark-brown); 
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin: 0; 
+        }
+
+        .add-to-cart {
+            background-color: var(--main-pink);
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 20px; 
+            cursor: pointer;
+            text-decoration: none; 
+            display: inline-block;
+            font-family: inherit;
+            font-weight: 600;
+            transition: 0.3s;
+            
+        }
+
+        .add-to-cart:hover {
+            background-color: var(--accent-pink);
+            color: white;
+        }
+        .button-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .button-wrapper .fb-icon img {
+            width: 40px;
+            height: 40px;
+            border-radius: 0;
+            border: none;
+            padding: 0;
+            transition: transform 0.3s;
+        }
+
+        .button-wrapper .fb-icon img:hover {
+            transform: scale(1.1);
+        }
+
+        /* ===== SOCIAL MEDIA CONTACTS (FOOTER) ===== */
+        .contacts {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 40px 20px;
+            background-color: rgba(250, 229, 229, 0.9);
+            text-align: center;
+        }
+
+        .contacts h2 {
+            font-size: 2rem;
+            color: #723241;
+        }
+
+        .contacts > p:first-of-type {
+            /* Targeting "Explore my journey..." paragraph */
+            margin-bottom: 20px;
+            position: absolute;
+            margin-top: 65px;
+        }
+
+        /* Removed .i style */
+
+        .contacts-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 600px;
+            margin-bottom: 20px; /* Space above copyright */
+        }
+
+        .contacts1, .contacts2, .contacts3 {
+            max-width: 150px;
+            transition: transform 0.3s ease;
+            flex-basis: auto; 
+        }
+
+        .contacts1 img, .contacts2 img, .contacts3 img {
+            width: 50%; /* Reverted to 100% of max-width to show image correctly */
+            border-radius: 15px;
+        }
+
+        .contacts1:hover, .contacts2:hover, .contacts3:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* New style for the copyright text */
+        .copyright-text {
+            font-family: "Cormorant Garamond", serif;
+    font-size: 1rem;
+    color: #7e4f5f;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 20px;
+        }
+        
+        
+        /* ======================================= */
+        /* ======== MOBILE AND TABLET MEDIA QUERIES ======== */
+        /* ======================================= */
+
+        /* Tablet/Medium Screens (Below 1024px) */
+        @media (max-width: 1024px) {
+            .service-cards {
+                max-width: 700px;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 600px; 
+            }
+        }
+        
+        /* Mobile/Small Screens (Below 768px) */
+        @media (max-width: 768px) {
+            
+            /* Navigation: Switch to stacked */
+            .top-nav {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 20px;
+            }
+
+            .logo {
+                margin-bottom: 10px;
+            }
+
+            .nav-links {
+                display: flex;
+                justify-content: space-around;
+                width: 100%;
+            }
+
+            .nav-links a {
+                margin-right: 0;
+                padding: 5px 0;
+                font-size: 0.9rem;
+            }
+            
+            /* Services: Force into a single column */
+            .service-cards {
+                grid-template-columns: 1fr;
+                max-width: 100%;
+                padding: 0;
+            }
+
+            /* Service Cards: Use 90% of screen width */
+            .service-card {
+                height: auto;
+                padding: 15px;
+                margin: 0 auto;
+                width: 90%;
+            }
+            
+            /* Product Grid: Force into a single column */
+            .product-grid {
+                grid-template-columns: 1fr;
+                max-width: 300px; 
+            }
+            
+            /* Social Media Contacts: Stack vertically for very small screens */
+            .contacts-cards {
+                flex-direction: column;
+            }
+            
+            .contacts1, .contacts2, .contacts3 {
+                max-width: 80%;
+                width: 80%;
+                margin: 0 auto 15px;
+            }
+
+            .contacts1 img, .contacts2 img, .contacts3 img {
+                width: 50%; /* Adjusted for mobile view to make icons look right */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="top-nav">
+        <div class="logo">
+            <p>Irish</p>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Me</a>
+            <a href="playlist.html">Playlist</a>
+            <a href="gallery.html">Favorite Place</a>
+        </div>
+    </nav>
+
+    <header>
+        <div class="header-content">
+            <div class="header-image">
+                <img src="irishh.png" alt="Boutique Model">
+            </div>
+            <div class="header-caption">
+                <p>Discover the dreams and colors that paint my life.</p>
+                <a href="about.html" class="btn">Who's Irish</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="bestsell">
+        <h2>Highlights</h2>
+        <p>Not perfect, but still a masterpiece in progress.</p>
+        <div class="bestsell-cards">
+            <div class="bestsell-card"><img src="1.jpg" alt="Highlight 1"></div>
+            <div class="bestsell-card"><img src="4.jpg" alt="Highlight 4"></div>
+            <div class="bestsell-card"><img src="2.jpg" alt="Highlight 2"></div>
+        </div>
+    </section>
+
+    <section class="services">
+        <h2>My Interest</h2>
+        <div class="interest">
+            <p>Qualities that influenced my growth and creativity.</p>
+        </div>
+        <div class="service-cards">
+            <div class="service-card">
+                <div class="icon">
+                    <img src="lany.jpg" alt="Music">
+                </div>
+                <div class="text">
+                    <h3>Listening to Music</h3>
+                    <p>Listening to music has been something I can't live without. I found comfort when listening to them.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">
+                    <img src="nails.jpg" alt="Nail Arts">
+                </div>
+                <div class="text">
+                    <h3>Nail Arts</h3>
+                    <p>I became interested in nails arts when I was on my 2nd year and since then, I was the one making my nails. Sometimes I do nail services.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">
+                    <img src="cal.jpg" alt="Calligraphy">
+                </div>
+                <div class="text">
+                    <h3>Calligraphy</h3>
+                    <p>I learned calligraphy when I was in grade school, I learned on how to be creative through this hobby.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">
+                    <img src="travel.jpg" alt="Exploring Places">
+                </div>
+                <div class="text">
+                    <h3>Exploring Places</h3>
+                    <p>Exploring places brings my soul at peace, it's as if coloring my world through the beautiful scenery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-section">
+        <h3>Confidants</h3>
+        <p>Amazing persons that added hues to my canvas.</p>
+        <div class="product-grid">
+            <div class="product">
+                <div class="image-container"><img src="ln.jpg" alt="Jerry Lance Alavaren"></div>
+                <div class="name-details-wrapper">
+                    <b>Jerry Lance <br>Alavaren</b>
+                    <p class="details-text">Age: 22 <br>Address: Ipil, Balasan, Iloilo</p>
+                </div>
+                <div class="button-wrapper">
+                    <a href="#" class="add-to-cart">View Website</a>
+                    <a href="https://www.facebook.com/share/17XV9AxCTZ/?mibextid=wwXIfr" target="_blank" class="fb-icon">
+                        <img src="fb.png" alt="Facebook">
+                    </a>
+                </div>
+            </div>
+
+            <div class="product">
+                <div class="image-container"><img src="gl.jpg" alt="Gleah Paciente"></div>
+                <div class="name-details-wrapper">
+                    <b>Gleah Paciente</b>
+                    <p class="details-text">Age: 22 <br>Address: Pani-an, Balasan, Iloilo</p>
+                </div>
+                <div class="button-wrapper">
+                    <a href="#" class="add-to-cart">View Website</a>
+                    <a href="https://www.facebook.com/share/16B3jPaVJF/?mibextid=wwXIfr " target="_blank" class="fb-icon">
+                        <img src="fb.png" alt="Facebook">
+                    </a>
+                </div>
+            </div>
+
+            <div class="product">
+                <div class="image-container"><img src="ek.jpg" alt="Nersha Marie Beronio"></div>
+                <div class="name-details-wrapper">
+                    <b>Nersha Marie <br>Beronio</b>
+                    <p class="details-text">Age: 21 <br>Address: Ipil, Balasan, Iloilo</p>
+                </div>
+                <div class="button-wrapper">
+                    <a href="#" class="add-to-cart">View Website</a>
+                    <a href="https://www.facebook.com/share/17fvziRUzP/?mibextid=wwXIfr " target="_blank" class="fb-icon">
+                        <img src="fb.png" alt="Facebook">
+                    </a>
+                </div>
+            </div>
+
+            <div class="product">
+                <div class="image-container"><img src="pol.jpg" alt="Merry Christile Castro"></div>
+                <div class="name-details-wrapper">
+                    <b>Merry Christile <br>Castro</b>
+                    <p class="details-text">Age: 21 <br>Address: Salong, Batad, Iloilo</p>
+                </div>
+                <div class="button-wrapper">
+                    <a href="#" class="add-to-cart">View Website</a>
+                    <a href="https://www.facebook.com/share/1YzG1NkFBB/?mibextid=wwXIfr " target="_blank" class="fb-icon">
+                        <img src="fb.png" alt="Facebook">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contacts">
+        <h2>Follow Me</h2>
+        <p>For more updates and journey.</p>
+        <div class="contacts-cards">
+            <div class="contacts1">
+                <a href="https://www.facebook.com/share/1GoPWbeen2/?mibextid=wwXIfr" target="_blank">
+                    <img src="fb.png" alt="Facebook">
+                </a>
+                <h5>Facebook</h5>
+            </div>
+            <div class="contacts2">
+                <a href="https://www.tiktok.com/@irizziiii?_r=1&_t=ZS-91IkadX8rLd" target="_blank">
+                    <img src="tt.png" alt="TikTok">
+                </a>
+                <h5>TikTok</h5>
+            </div>
+            <div class="contacts3">
+                <a href="https://www.instagram.com/in2tlps_?igsh=MXBmZmhhb2MyOTdmMg%3D%3D&utm_source=qr" target="_blank">
+                    <img src="ig.png" alt="Instagram">
+                </a>
+                <h5>Instagram</h5>
+            </div>
+        </div>
+        <p class="copyright-text">© 2025 Irish — All Rights Reserved.</p>
+
+    </section>
+</body>
+</html>

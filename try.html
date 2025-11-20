@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Irish's Playlist</title>
+    <style>
+        /* Variables for Pink and Dark Colors */
+        :root {
+            --main-pink: #d17d87; /* Main button/accent pink */
+            --accent-pink: #b24a62; /* Darker text/focus pink */
+            --light-pink: #f7e7e9;
+            --dark-brown: #3d2a2a;
+            --text-color: #5a3a52;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Georgia, serif;
+            height: 100%;
+            background: linear-gradient(to right, #f7c9cf, #f3909c);
+            color: var(--dark-brown);
+        }
+
+        /* ===== NAVIGATION BAR (Base - Desktop) ===== */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background-color: rgba(243, 242, 226, 1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 70px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #a0522d;
+        }
+
+        .nav-links a {
+            margin-right: 50px;
+            text-decoration: none;
+            color: var(--dark-brown);
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fabb9b;
+        }
+        
+        /* ===== PLAYLIST CONTENT SECTION (New Styling) ===== */
+        .playlist-content {
+            padding: 80px 40px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            min-height: calc(100vh - 70px); /* Fill remaining viewport height */
+        }
+        
+        .playlist-content h2 {
+            font-size: 2.5rem;
+            color: var(--accent-pink);
+            margin-bottom: 5px;
+        }
+        
+        .playlist-content p {
+            font-size: 1.1rem;
+            color: #8b3e50;
+            margin-bottom: 50px;
+        }
+
+        .artist-card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            text-align: left;
+        }
+
+        .artist-image-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 5px solid var(--main-pink);
+        }
+
+        .artist-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .artist-info h3 {
+            font-size: 1.8rem;
+            color: var(--dark-brown);
+            margin: 0 0 5px 0;
+        }
+
+        .artist-info span {
+            display: block;
+            color: var(--accent-pink);
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .track-list {
+            margin-top: 20px;
+            padding-left: 0;
+            list-style: none;
+            text-align: left;
+        }
+
+        .track-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: var(--text-color);
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .track-list li:last-child {
+            border-bottom: none;
+        }
+
+        .track-list li:hover {
+            color: var(--accent-pink);
+        }
+
+        /* ===== SOCIAL MEDIA CONTACTS (FOOTER) - Reusing existing styles ===== */
+        .contacts {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 40px 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+        }
+
+        .contacts h2 {
+            font-size: 2rem;
+            color: #723241;
+        }
+
+        .contacts > p {
+            margin-bottom: 20px;
+        }
+
+        .contacts-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+
+        .contacts1, .contacts2, .contacts3 {
+            max-width: 150px;
+            transition: transform 0.3s ease;
+            flex-basis: auto; 
+        }
+
+        .contacts1 img, .contacts2 img, .contacts3 img {
+            width: 100%;
+            border-radius: 15px;
+        }
+        
+        .contacts1:hover, .contacts2:hover, .contacts3:hover {
+            transform: translateY(-5px);
+        }
+        
+        .copyright-text {
+            font-size: 0.85rem;
+            color: #7a7a7a;
+            margin-top: 20px;
+        }
+        
+        /* ======================================= */
+        /* ======== MOBILE MEDIA QUERIES ======== */
+        /* ======================================= */
+        @media (max-width: 768px) {
+            .top-nav {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 20px;
+            }
+
+            .logo {
+                margin-bottom: 10px;
+            }
+
+            .nav-links {
+                justify-content: space-around;
+            }
+
+            .nav-links a {
+                margin-right: 0;
+                padding: 5px 0;
+                font-size: 0.8rem;
+            }
+
+            .artist-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+                max-width: 90%;
+            }
+
+            .track-list {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="top-nav">
+        <div class="logo">
+            <p>Irish</p>
+        </div>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="about.html">About Me</a>
+            <a href="interest.html">Interest</a>
+            <a href="playlist.html">Playlist</a> 
+        </div>
+    </nav>
+
+    <section class="playlist-content">
+        <h2>My Comfort Playlist</h2>
+        <p>A collection of favorite tracks for every mood.</p>
+
+        <div class="artist-card">
+            <div class="artist-image-container">
+                <img src="lany.jpg" alt="LANY Band Photo">
+            </div>
+            <div class="artist-info">
+                <span>Featured Artist:</span>
+                <h3>LANY</h3>
+                <ul class="track-list">
+                    <li>1. ILYSB</li>
+                    <li>2. Malibuu</li>
+                    <li>3. Thru These Tears</li>
+                    <li>4. Mean It</li>
+                    <li>5. Good Guys</li>
+                    <li>6. Expiration Date</li>
+                </ul>
+            </div>
+        </div>
+        
+        </section>
+
+    <section class="contacts">
+        <h2>Follow Me</h2>
+        <p>Explore my journey on social media.</p>
+        <div class="contacts-cards">
+            <div class="contacts1">
+                <a href="https://www.facebook.com/share/1GoPWbeen2/?mibextid=wwXIfr" target="_blank">
+                    <img src="fb.png" alt="Facebook">
+                </a>
+                <h5>Facebook</h5>
+            </div>
+            <div class="contacts2">
+                <a href="https://www.tiktok.com/@irizziiii?_r=1&_t=ZS-91IkadX8rLd" target="_blank">
+                    <img src="tt.png" alt="TikTok">
+                </a>
+                <h5>TikTok</h5>
+            </div>
+            <div class="contacts3">
+                <a href="https://www.instagram.com/in2tlps_?igsh=MXBmZmhhb2MyOTdmMg%3D%3D&utm_source=qr" target="_blank">
+                    <img src="ig.png" alt="Instagram">
+                </a>
+                <h5>Instagram</h5>
+            </div>
+        </div>
+        <p class="copyright-text"><i>All Rights Reserved.</i></p>
+    </section>
+</body>
+</html>

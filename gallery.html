@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Gallery</title>
+    <style>
+        :root {
+            --light-pink: #fce7ef;
+            --baby-pink: #f9d6e2;
+            --rose-pink: #e7a4b5;
+            --deep-pink: #c56780;
+            --text-dark: #5a3a52;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            background: linear-gradient(to bottom, var(--light-pink), var(--baby-pink));
+            min-height: 100vh;
+            padding: 0;
+        }
+        .back-btn {
+        position: absolute;
+        left: 20px;
+        padding: 10px 22px;
+        background: linear-gradient(135deg, #f9d6e2, #e7a4b5);
+        color: #fff;
+        font-weight: bold;
+        border-radius: 30px;
+        text-decoration: none;
+        box-shadow: 0 4px 8px rgba(200, 120, 150, 0.4);
+        transition: 0.3s;
+        }
+        .back-btn:hover {
+            background: linear-gradient(135deg, #c56780, #e7a4b5);
+            color: #fff;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: linear-gradient(135deg, #fce7ef, #ffeef5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(200, 120, 150, 0.25);
+            border-bottom: 2px solid #f7c5d4;
+            z-index: 100;
+            padding: 0 20px;
+        }
+
+        .header h1 {
+            color: var(--deep-pink);
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 120px auto 40px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(249, 214, 226, 0.8));
+            backdrop-filter: blur(5px);
+            border-radius: 25px;
+            padding: 50px;
+            box-shadow: 0 6px 20px rgba(200, 120, 150, 0.2);
+            border: 2px solid rgba(231, 164, 181, 0.3);
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: var(--deep-pink);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--rose-pink);
+            border-radius: 2px;
+        }
+
+        /* Grid with bigger images */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .image-item {
+            width: 100%;
+            height: 260px;
+            background: linear-gradient(135deg, var(--light-pink), var(--baby-pink));
+            border-radius: 25px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(200, 120, 150, 0.2);
+            border: 3px solid var(--deep-pink);
+            position: relative;
+        }
+
+        .image-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(197, 103, 128, 0.4);
+            border-color: var(--rose-pink);
+        }
+
+        /* Responsive Design */
+        
+        /* Extra Large Screens */
+        @media (min-width: 1441px) {
+            .gallery-container {
+                max-width: 1400px;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            .image-grid {
+                gap: 30px;
+            }
+            .image-item {
+                height: 280px;
+            }
+        }
+
+        /* Large Screens */
+        @media (max-width: 1240px) {
+            .gallery-container {
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+        }
+
+        /* Desktop/Tablet Large */
+        @media (max-width: 1024px) {
+            .image-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+            .image-item {
+                height: 240px;
+            }
+            .gallery-container {
+                padding: 40px;
+            }
+        }
+
+        /* Tablet */
+        @media (max-width: 768px) {
+            .header {
+                height: 70px;
+            }
+            .header h1 {
+                font-size: 1.7rem;
+            }
+            .gallery-container {
+                margin-top: 100px;
+                padding: 35px 25px;
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            .image-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 18px;
+            }
+            .image-item {
+                height: 200px;
+            }
+            .section-title {
+                font-size: 1.5em;
+            }
+        }
+
+        /* Mobile Large */
+        @media (max-width: 600px) {
+            .image-grid {
+                gap: 15px;
+            }
+            .image-item {
+                height: 180px;
+            }
+        }
+
+        /* Mobile Standard */
+        @media (max-width: 480px) {
+            .header {
+                height: 65px;
+            }
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            .gallery-container {
+                margin: 85px 12px 30px;
+                padding: 25px 18px;
+                border-radius: 20px;
+            }
+            .image-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .image-item {
+                height: 170px;
+                border-radius: 20px;
+            }
+            .section {
+                margin-bottom: 35px;
+            }
+            .section-title {
+                font-size: 1.3em;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Mobile Small */
+        @media (max-width: 360px) {
+            .header {
+                height: 60px;
+            }
+            .header h1 {
+                font-size: 1.3rem;
+            }
+            .gallery-container {
+                margin: 75px 10px 20px;
+                padding: 20px 15px;
+            }
+            .image-grid {
+                gap: 10px;
+            }
+            .image-item {
+                height: 150px;
+                border-radius: 18px;
+            }
+            .section-title {
+                font-size: 1.2em;
+            }
+        }
+
+        /* Landscape Orientation - Tablets */
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+            .image-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .image-item {
+                height: 200px;
+            }
+        }
+
+        /* Landscape Orientation - Phones */
+        @media (max-width: 767px) and (orientation: landscape) {
+            .header {
+                height: 60px;
+            }
+            .header h1 {
+                font-size: 1.4rem;
+            }
+            .gallery-container {
+                margin-top: 75px;
+                padding: 25px 20px;
+            }
+            .image-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
+            }
+            .image-item {
+                height: 140px;
+            }
+        }
+
+        /* Very Small Screens Landscape */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .header {
+                height: 55px;
+            }
+            .header h1 {
+                font-size: 1.2rem;
+            }
+            .gallery-container {
+                margin-top: 70px;
+                padding: 20px;
+            }
+            .image-item {
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html" class="back-btn">Back</a>
+        <h1>Mini Gallery</h1>
+    </div>
+
+    <div class="gallery-container">
+        <!-- Boracay -->
+        <div class="section">
+            <h2 class="section-title">Boracay</h2>
+            <div class="image-grid">
+                <div class="image-item">
+                    <img src="b1.jpg" alt="Boracay Photo 1">
+                </div>
+                <div class="image-item">
+                    <img src="b2.jpg" alt="Boracay Photo 2">
+                </div>
+                <div class="image-item">
+                    <img src="b3.jpg" alt="Boracay Photo 3">
+                </div>
+                <div class="image-item">
+                    <img src="b4.jpg" alt="Boracay Photo 4">
+                </div>
+            </div>
+        </div>
+
+        <!-- Caza -->
+        <div class="section">
+            <h2 class="section-title">Caza</h2>
+            <div class="image-grid">
+                <div class="image-item">
+                    <img src="c1.jpg" alt="Caza Photo 1">
+                </div>
+                <div class="image-item">
+                    <img src="c2.jpg" alt="Caza Photo 2">
+                </div>
+                <div class="image-item">
+                    <img src="c3.jpg" alt="Caza Photo 3">
+                </div>
+                <div class="image-item">
+                    <img src="c4.jpg" alt="Caza Photo 4">
+                </div>
+            </div>
+        </div>
+
+        <!-- New Beach Head -->
+        <div class="section">
+            <h2 class="section-title">New Beach Head</h2>
+            <div class="image-grid">
+                <div class="image-item">
+                    <img src="n1.jpg" alt="Beach Photo 1">
+                </div>
+                <div class="image-item">
+                    <img src="n2.jpg" alt="Beach Photo 2">
+                </div>
+                <div class="image-item">
+                    <img src="n3.jpg" alt="Beach Photo 3">
+                </div>
+                <div class="image-item">
+                    <img src="n4.jpg" alt="Beach Photo 4">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

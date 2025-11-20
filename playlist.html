@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Irish Playlist</title>
+
+<style>
+:root {
+    --light-pink: #fce7ef;
+    --baby-pink: #f9d6e2;
+    --rose-pink: #e7a4b5;
+    --deep-pink: #c56780;
+    --text-dark: #5a3a52;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(to bottom, #fce7ef, #f9d6e2);
+    font-family: Georgia, serif;
+}
+
+/* BACK BUTTON */
+.back-btn {
+    position: absolute;
+    left: 20px;
+    padding: 10px 22px;
+    background: linear-gradient(135deg, #f9d6e2, #e7a4b5);
+    color: #fff;
+    font-weight: bold;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(200, 120, 150, 0.4);
+    transition: 0.3s;
+}
+.back-btn:hover {
+    background: linear-gradient(135deg, #c56780, #e7a4b5);
+}
+
+/* HEADER */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(135deg, #fce7ef, #ffeef5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(200, 120, 150, 0.25);
+    border-bottom: 2px solid #f7c5d4;
+    z-index: 100;
+    padding: 0 20px;
+}
+.header h1 {
+    color: var(--deep-pink);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+/* MAIN GRID */
+.main-wrapper {
+    margin-top: 120px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* CONTAINER */
+.container {
+    background: linear-gradient(145deg, #ffffffcc, #f9d6e2cc);
+    backdrop-filter: blur(5px);
+    border-radius: 25px;
+    box-shadow: 0 6px 20px rgba(200, 120, 150, 0.2);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* IMAGE ROW */
+.image-row {
+    display: flex;
+    gap: 15px;
+}
+
+.container img {
+    height: 150px;
+    width: 160px;
+    border-radius: 25px;
+    border: 3px solid var(--deep-pink);
+    object-fit: cover;
+}
+
+/* AUDIO */
+audio {
+    width: 50%;
+    height: 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(200, 120, 150, 0.2);
+    display: block;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    .container img {
+        width: 45%;
+    }
+}
+@media (max-width: 480px) {
+    .container img {
+        width: 100%;
+    }
+    audio {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <a href="index.html" class="back-btn">Back</a>
+    <h1>My Playlist</h1>
+</div>
+
+<div class="main-wrapper">
+    <div class="grid">
+
+        <!-- PLAYLIST 1 -->
+        <div class="container">
+            <div class="image-row">
+                <img src="olivia.jpg">
+                <img src="doyou.jpg">
+            </div>
+            <audio controls class="audio-player" src="dejavu.mp3"></audio>
+        </div>
+
+        <!-- PLAYLIST 2 -->
+        <div class="container">
+            <div class="image-row">
+                <img src="amw.jpg">
+                <img src="amw1.jpg">
+            </div>
+            <audio controls class="audio-player" src="amw.mp3"></audio>
+        </div>
+
+        <!-- PLAYLIST 3 -->
+        <div class="container">
+            <div class="image-row">
+                <img src="young.jpg">
+                <img src="blue.jpg">
+            </div>
+            <audio controls class="audio-player" src="bluu.mp3"></audio>
+        </div>
+
+        <!-- PLAYLIST 4 -->
+        <div class="container">
+            <div class="image-row">
+                <img src="arthur.jpg">
+                <img src="lihim.jpg">
+            </div>
+            <audio controls class="audio-player" src="li.mp3"></audio>
+        </div>
+
+        <!-- PLAYLIST 5 -->
+        <div class="container">
+            <div class="image-row">
+                <img src="wave.jpg">
+                <img src="season.jpg">
+            </div>
+            <audio controls class="audio-player" src="season.mp3"></audio>
+        </div>
+
+        <!-- PLAYLIST 6 -->
+        <div class="container">
+            <div class="image-row">
+                <img src="iv.jpg">
+                <img src="come.jpg">
+            </div>
+            <audio controls class="audio-player" src="come.mp3"></audio>
+        </div>
+
+        <!-- PLAYLIST 7 -->
+        <div class="container">
+            <div class="image-row">
+                <img src="hy.jpg">
+                <img src="tip.jpg">
+            </div>
+            <audio controls class="audio-player" src="tiptoe.mp3"></audio>
+        </div>
+
+        <!-- PLAYLIST 8 -->
+        <div class="container">
+            <div class="image-row">
+                <img src="la.jpg">
+                <img src="alon.jpg">
+            </div>
+            <audio controls class="audio-player" src="alon.mp3"></audio>
+        </div>
+
+    </div>
+</div>
+
+<script>
+/* Only ONE audio plays at a time */
+const players = document.querySelectorAll(".audio-player");
+
+players.forEach(player => {
+    player.addEventListener("play", () => {
+        players.forEach(other => {
+            if (other !== player) {
+                other.pause();
+                other.currentTime = 0;
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>
