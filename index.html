@@ -1,12 +1,10 @@
-<!DOCTYPE html><!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="keywords" content="IrishMaeMapa, coding, HTML, CSS">
-    <meta name="description" content="Irish Mae Mapa's portfolio — explore HTML, CSS projects, favorite places, music, and hobbies.">
-    <meta name="robots" content="index, follow">
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-    <title>MAPA PORTFOLIO</title>
+    <meta name="description" content="My Canvas of Life | Get to know me more!">
+    <meta name="keywords" content="Irish Mae Mapa | BSIT 4-A">
+    <title>Irish Mae Mapa | My Website</title>
     <style>
         /* Variables for Pink and Dark Colors */
         :root {
@@ -386,7 +384,52 @@
             transform: scale(1.1);
         }
 
-       
+        /* ===== SOCIAL MEDIA CONTACTS (FOOTER) ===== */
+        .contacts {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 40px 20px;
+            background-color: rgba(250, 229, 229, 0.9);
+            text-align: center;
+        }
+
+        .contacts h2 {
+            font-size: 2rem;
+            color: #723241;
+            margin-bottom: 10px;
+        }
+
+        .contacts > p:first-of-type {
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+
+        .contacts-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+
+        .contacts1, .contacts2, .contacts3 {
+            max-width: 150px;
+            transition: transform 0.3s ease;
+            flex-basis: auto; 
+        }
+
+        .contacts1 img, .contacts2 img, .contacts3 img {
+            width: 50%;
+            border-radius: 15px;
+        }
+
+        .contacts1:hover, .contacts2:hover, .contacts3:hover {
+            transform: translateY(-5px);
+        }
+        
         .copyright-text {
             font-family: "Cormorant Garamond", serif;
             font-size: 1rem;
@@ -673,8 +716,31 @@
             </div>
         </div>
     </section>
+
+    <section class="contacts">
+        <h2>Follow Me</h2>
+        <p>For more updates and journey.</p>
+        <div class="contacts-cards">
+            <div class="contacts1">
+                <a href="https://www.facebook.com/share/1GoPWbeen2/?mibextid=wwXIfr" target="_blank">
+                    <img src="fb.png" alt="Facebook">
+                </a>
+                <h5>Facebook</h5>
+            </div>
+            <div class="contacts2">
+                <a href="https://www.tiktok.com/@irizziiii?_r=1&_t=ZS-91IkadX8rLd" target="_blank">
+                    <img src="tt.png" alt="TikTok">
+                </a>
+                <h5>TikTok</h5>
+            </div>
+            <div class="contacts3">
+                <a href="https://www.instagram.com/in2tlps_?igsh=MXBmZmhhb2MyOTdmMg%3D%3D&utm_source=qr" target="_blank">
+                    <img src="ig.png" alt="Instagram">
+                </a>
+                <h5>Instagram</h5>
+            </div>
+        </div>
         <p class="copyright-text">© 2025 Irish — All Rights Reserved.</p>
+    </section>
 </body>
 </html>
-
-
